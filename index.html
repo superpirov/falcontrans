@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falcon Trans — Грузоперевозки по всей России | Фуры, спецтехника, склады</title>
+  <meta name="description" content="Falcon Trans — федеральная транспортная компания. Фуры, тралы, рефрижераторы, вилочные погрузчики, склады класса А. 89 регионов, 48 000 рейсов в год, 99% в срок. Калькулятор, GPS-трекинг 24/7.">
+  <meta property="og:title" content="Falcon Trans — доставим в любую точку России">
+  <meta property="og:description" content="Собственный автопарк 120+ машин, спецтехника, склады. Работаем 24/7 по всей России.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M4 28L14 10L20 20L26 8L36 28H4Z' fill='%23FF6B00'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <svg class="preloader-logo" viewBox="0 0 40 40" fill="none"><path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="url(#plg)"/><defs><linearGradient id="plg" x1="4" y1="8" x2="36" y2="28"><stop stop-color="#FF6B00"/><stop offset="1" stop-color="#FFB800"/></linearGradient></defs></svg>
+      <div class="preloader-text">FALCON TRANS</div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+      <div class="preloader-pct" id="preloaderPct">0%</div>
+      <div class="preloader-road"><div class="preloader-truck">🚚</div></div>
+    </div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="noise"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-badge">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="url(#nlg)"/><defs><linearGradient id="nlg" x1="4" y1="8" x2="36" y2="28"><stop stop-color="#FF6B00"/><stop offset="1" stop-color="#FFB800"/></linearGradient></defs></svg>
+        </span>
+        <span class="logo-text">FALCON<em>TRANS</em><small>по всей России</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#calc">Калькулятор</a>
+        <a href="#fleet">Автопарк</a>
+        <a href="#geo">География</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-right">
+        <button class="track-btn" id="trackOpen">📦 Трекинг</button>
+        <a href="tel:+78005553535" class="nav-phone">8 800 555-35-35<small>24/7 бесплатно</small></a>
+        <a href="#contacts" class="btn btn-primary btn-sm">Заказать</a>
+        <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Услуги</a>
+    <a href="#calc">Калькулятор</a>
+    <a href="#fleet">Автопарк</a>
+    <a href="#geo">География</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+    <a href="tel:+78005553535" class="mobile-phone">8 800 555-35-35</a>
+  </div>
+
+  <main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+      <div class="stars" id="stars"></div>
+      <div class="city-skyline" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none"><path d="M0 140V90h40V60h30v30h25V40h45v50h30V70h35v20h40V55h30v35h45V65h25v25h50V50h35v40h30V75h40v15h45V60h30v30h50V70h35v20h40V55h45v35h30V140H0Z" fill="#12141c"/></svg>
+      </div>
+    </div>
+
+    <div class="container hero-layout">
+      <div class="hero-content">
+        <div class="hero-tag" data-reveal><span class="pulse"></span> ФЕДЕРАЛЬНЫЙ ПЕРЕВОЗЧИК • 89 РЕГИОНОВ • 24/7</div>
+        <h1 class="hero-title">
+          <span class="line" data-reveal>ВЕЗЁМ ГРУЗЫ</span>
+          <span class="line" data-reveal>ОТ <span class="grad">КАЛИНИНГРАДА</span></span>
+          <span class="line" data-reveal>ДО <span class="grad">ВЛАДИВОСТОКА</span></span>
+        </h1>
+        <p class="hero-sub" data-reveal>Фуры, тралы, рефрижераторы, вилочные погрузчики и склады класса А. GPS-трекинг, страхование, подача за 3 часа в любом городе-миллионнике.</p>
+        <div class="hero-cta" data-reveal>
+          <a href="#calc" class="btn btn-primary btn-lg magnetic">Рассчитать за 30 сек →</a>
+          <button class="btn btn-ghost btn-lg" id="heroTrackBtn">📍 Отследить груз</button>
+        </div>
+        <div class="hero-stats" data-reveal>
+          <div class="stat"><b><span data-count="12">0</span></b><span>лет на рынке</span></div>
+          <div class="stat"><b><span data-count="120">0</span>+</b><span>машин в парке</span></div>
+          <div class="stat"><b><span data-count="48000">0</span></b><span>рейсов / год</span></div>
+          <div class="stat accent"><b><span data-count="99">0</span>%</b><span>доставка в срок</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="hero-card glass">
+          <div class="hero-card-top">
+            <span class="live"><i></i> LIVE GPS</span>
+            <span>FT-8842 • Москва → Казань</span>
+          </div>
+          <div class="hero-map">
+            <svg viewBox="0 0 400 180" class="hero-route-svg">
+              <path id="heroRoute" d="M20 150 C 100 150, 120 60, 200 70 S 320 120, 380 40" fill="none" stroke="#2b3040" stroke-width="3" stroke-dasharray="6 6"/>
+              <path id="heroRouteActive" d="M20 150 C 100 150, 120 60, 200 70 S 320 120, 380 40" fill="none" stroke="url(#hg)" stroke-width="3" stroke-linecap="round"/>
+              <defs><linearGradient id="hg" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#FF6B00"/><stop offset="1" stop-color="#FFB800"/></linearGradient></defs>
+              <circle cx="20" cy="150" r="6" fill="#FF6B00"/><circle cx="380" cy="40" r="6" fill="#FFB800"/>
+              <g id="heroTruckDot"><circle r="10" fill="#FF6B00" opacity="0.25"/><circle r="5" fill="#fff"/><text y="-14" text-anchor="middle" fill="#fff" font-size="18">🚚</text></g>
+            </svg>
+            <div class="hero-meta">
+              <div><small>Скорость</small><b>82 км/ч</b></div>
+              <div><small>Осталось</small><b>214 км</b></div>
+              <div><small>Прибытие</small><b class="green">вовремя</b></div>
+            </div>
+          </div>
+          <div class="hero-card-bottom">
+            <div class="driver"><div class="avatar">АК</div><div><b>Андрей К.</b><small>стаж 14 лет • рейтинг 4.98</small></div></div>
+            <div class="temp">❄️ +4.2°C</div>
+          </div>
+        </div>
+        <div class="floating-chip chip-1">✅ Застраховано на 15 млн ₽</div>
+        <div class="floating-chip chip-2">🏗️ Погрузчик уже на складе</div>
+      </div>
+    </div>
+
+    <!-- HERO HIGHWAY -->
+    <div class="hero-highway" id="heroHighway">
+      <div class="h-road">
+        <div class="h-lane"></div>
+        <div class="h-vehicle v-truck" data-speed="0.35"> 
+          <div class="veh-body truck">
+            <div class="veh-cabin"></div><div class="veh-box">FALCON TRANS</div>
+            <div class="wheel w1"></div><div class="wheel w2"></div><div class="wheel w3"></div>
+          </div>
+        </div>
+        <div class="h-vehicle v-gazelle" data-speed="0.6">
+          <div class="veh-body gazelle"><div class="veh-cabin small"></div><div class="veh-box small">FT Express</div><div class="wheel w1"></div><div class="wheel w2"></div></div>
+        </div>
+        <div class="h-vehicle v-fork" data-speed="0.9">
+          <div class="veh-body forklift"><div class="fork-mast"></div><div class="fork-pallet">📦</div><div class="wheel w1"></div><div class="wheel w2"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>скролль — всё поедет</span><div class="scroll-line"><div class="scroll-dot"></div></div></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee"><div class="marquee-track" id="marqueeTrack">
+      <span>ФУРЫ 20 ТОНН</span><i>◆</i><span>ТРАЛЫ 60 ТОНН</span><i>◆</i><span>РЕФРИЖЕРАТОРЫ</span><i>◆</i><span>ВИЛОЧНЫЕ ПОГРУЗЧИКИ</span><i>◆</i><span>СБОРНЫЕ ГРУЗЫ</span><i>◆</i><span>СКЛАДЫ КЛАССА А</span><i>◆</i><span>ДОСТАВКА 24/7</span><i>◆</i>
+      <span>ФУРЫ 20 ТОНН</span><i>◆</i><span>ТРАЛЫ 60 ТОНН</span><i>◆</i><span>РЕФРИЖЕРАТОРЫ</span><i>◆</i><span>ВИЛОЧНЫЕ ПОГРУЗЧИКИ</span><i>◆</i><span>СБОРНЫЕ ГРУЗЫ</span><i>◆</i><span>СКЛАДЫ КЛАССА А</span><i>◆</i><span>ДОСТАВКА 24/7</span><i>◆</i>
+    </div></div>
+  </div>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="container">
+      <p class="trust-label" data-reveal>НАМ ДОВЕРЯЮТ ЛОГИСТИКУ</p>
+      <div class="trust-logos" data-reveal>
+        <span>ЛЕРУА ПРО</span><span>X5 GROUP</span><span>СТРОЙДОМ</span><span>МЕБЕЛЬГРАД</span><span>АГРОХОЛДИНГ</span><span>ТЕХНОНИКОЛЬ</span><span>OZON PARTNERS</span><span>СЕВЕРСТАЛЬ</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>01 — УСЛУГИ</span>
+        <h2 data-reveal>ПОЛНЫЙ ЦИКЛ<br><em>ГРУЗОВОЙ ЛОГИСТИКИ</em></h2>
+        <p data-reveal>От одной паллеты до завода под ключ. Один договор, один менеджер, одна ответственность.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card" data-reveal data-tilt>
+          <div class="service-num">01</div>
+          <div class="service-icon">🚛</div>
+          <h3>Магистральные перевозки</h3>
+          <p>Тенты, шторки, рефы, изотермы. Москва — СПб от 12 ч, Москва — Новосибирск от 3 суток.</p>
+          <ul><li>от 1 до 20 тонн</li><li>догруз / отдельная машина</li></ul>
+          <a href="#calc" class="service-link">Рассчитать →</a>
+          <div class="card-road"><div class="card-truck">🚚</div></div>
+        </article>
+        <article class="service-card hot" data-reveal data-tilt>
+          <div class="service-num">02</div>
+          <div class="service-badge">ХИТ</div>
+          <div class="service-icon">🏗️</div>
+          <h3>Спецтехника + погрузчики</h3>
+          <p>Вилочные погрузчики 1.5–10 т, краны, манипуляторы, тралы. Оператор + стропальщик в комплекте.</p>
+          <ul><li>подача от 2 часов</li><li>аренда от смены / месяца</li></ul>
+          <a href="#spec" class="service-link">Смотреть технику →</a>
+          <div class="card-road"><div class="card-truck">🏗️</div></div>
+        </article>
+        <article class="service-card" data-reveal data-tilt>
+          <div class="service-num">03</div>
+          <div class="service-icon">❄️</div>
+          <h3>Рефрижераторы и холод</h3>
+          <p>Фарма, продукты, цветы. Температурный режим −25…+25°C с онлайн-датчиком и отчётом.</p>
+          <ul><li>Thermo King / Carrier</li><li>SAP-отчёт по температуре</li></ul>
+          <a href="#calc" class="service-link">Рассчитать →</a>
+          <div class="card-road"><div class="card-truck">🧊</div></div>
+        </article>
+        <article class="service-card" data-reveal data-tilt>
+          <div class="service-num">04</div>
+          <div class="service-icon">📦</div>
+          <h3>Сборные грузы</h3>
+          <p>От 1 кг. Забираем у поставщика, консолидируем в хабах, везём дешевле отдельной машины в 4 раза.</p>
+          <ul><li>ежедневно 40 направлений</li><li>упаковка и обрешетка</li></ul>
+          <a href="#calc" class="service-link">Рассчитать →</a>
+          <div class="card-road"><div class="card-truck">📦</div></div>
+        </article>
+        <article class="service-card" data-reveal data-tilt>
+          <div class="service-num">05</div>
+          <div class="service-icon">🏭</div>
+          <h3>Негабарит и тралы</h3>
+          <p>Станки, бытовки, сельхозтехника до 60 т. Разрешения, сопровождение ГИБДД, проект перевозки.</p>
+          <ul><li>тралы 40–60 т, раздвижные</li><li>оформление за 5 дней</li></ul>
+          <a href="#contacts" class="service-link">Запросить →</a>
+          <div class="card-road"><div class="card-truck">🚜</div></div>
+        </article>
+        <article class="service-card" data-reveal data-tilt>
+          <div class="service-num">06</div>
+          <div class="service-icon">🏢</div>
+          <h3>Склады класса А</h3>
+          <p>Москва, СПб, Казань, Екатеринбург, Новосибирск. Ответхранение, кросс-докинг, фулфилмент.</p>
+          <ul><li>25 000 м², WMS</li><li>погрузчики и штабелёры</li></ul>
+          <a href="#contacts" class="service-link">Запросить →</a>
+          <div class="card-road"><div class="card-truck">🏢</div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRIVE STORY / SCROLL HIGHWAY -->
+  <section class="drive-story" id="driveStory">
+    <div class="drive-sticky">
+      <div class="container drive-head">
+        <span class="section-tag light">02 — КАК ЭТО РАБОТАЕТ ВЖИВУЮ</span>
+        <h2>Скролльте — <em>караван едет</em> через Россию</h2>
+        <p>Каждая машина движется со своей скоростью. Так же и в жизни: экспресс-газель обгоняет фуру, а погрузчик уже ждёт на складе.</p>
+        <div class="drive-progress"><div class="drive-progress-fill" id="driveFill"></div></div>
+        <div class="drive-cities"><span>Москва</span><span>Казань</span><span>Екатеринбург</span><span>Новосибирск</span><span>Владивосток</span></div>
+      </div>
+      <div class="drive-scene">
+        <div class="sky"><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div></div>
+        <div class="mountains"></div>
+        <div class="track lane-1"><div class="moving-truck t1" id="driveTruck1"><span class="t-emoji">🚚</span><span class="t-label">Фура 20т • 82 км/ч</span></div></div>
+        <div class="track lane-2"><div class="moving-truck t2" id="driveTruck2"><span class="t-emoji">🚛</span><span class="t-label">Реф +4°C</span></div></div>
+        <div class="track lane-3"><div class="moving-truck t3" id="driveTruck3"><span class="t-emoji">🚐</span><span class="t-label">Экспресс 1.5т</span></div></div>
+        <div class="track lane-yard"><div class="moving-truck t4" id="driveFork"><span class="t-emoji">🏗️</span><span class="t-label">Погрузчик на разгрузке</span></div></div>
+        <div class="drive-roadmark"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section calc" id="calc">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>03 — КАЛЬКУЛЯТОР</span>
+        <h2 data-reveal>ЦЕНА ЗА <em>30 СЕКУНД</em></h2>
+        <p data-reveal>Честный тариф без «позвоните для уточнения». Считается по реальным ставкам 2026 года.</p>
+      </div>
+      <div class="calc-grid">
+        <div class="calc-form glass" data-reveal>
+          <div class="calc-row">
+            <label>Откуда<input id="calcFrom" list="cities" value="Москва" placeholder="Город отправления"></label>
+            <button class="swap" id="swapCities" title="Поменять">⇄</button>
+            <label>Куда<input id="calcTo" list="cities" value="Казань" placeholder="Город получения"></label>
+            <datalist id="cities"><option value="Москва"></option><option value="Санкт-Петербург"></option><option value="Казань"></option><option value="Екатеринбург"></option><option value="Новосибирск"></option><option value="Краснодар"></option><option value="Ростов-на-Дону"></option><option value="Самара"></option><option value="Владивосток"></option><option value="Калининград"></option></datalist>
+          </div>
+          <div class="calc-row">
+            <label>Тип машины
+              <select id="calcType">
+                <option value="1">Газель 1.5т / 18м³ — от 32 ₽/км</option>
+                <option value="1.8" selected>Фура 20т / 82м³ — от 58 ₽/км</option>
+                <option value="2.1">Рефрижератор 20т — от 68 ₽/км</option>
+                <option value="2.6">Трал 40т негабарит — от 95 ₽/км</option>
+              </select>
+            </label>
+          </div>
+          <div class="calc-row two">
+            <label>Вес, тонн<input id="calcWeight" type="number" min="0.1" max="60" value="10"></label>
+            <label>Доп. услуги
+              <select id="calcExtra">
+                <option value="0">Без доп. услуг</option>
+                <option value="4500">Погрузчик + стропальщик (+4 500 ₽)</option>
+                <option value="8000">Упаковка + обрешетка (+8 000 ₽)</option>
+                <option value="12000">Страхование расширенное (+12 000 ₽)</option>
+              </select>
+            </label>
+          </div>
+          <div class="calc-toggles">
+            <label class="toggle"><input type="checkbox" id="calcExpress"><span></span>Экспресс +30%</label>
+            <label class="toggle"><input type="checkbox" id="calcLoad" checked><span></span>Погрузка/разгрузка включена</label>
+          </div>
+          <button class="btn btn-primary btn-lg calc-btn" id="calcBtn">Рассчитать стоимость</button>
+          <p class="calc-note">Фиксируем цену в договоре. Без доплат за пробки и «сложный подъезд».</p>
+        </div>
+        <div class="calc-result" data-reveal>
+          <div class="result-card glass">
+            <small>МАРШРУТ</small>
+            <h3 id="resRoute">Москва → Казань</h3>
+            <div class="res-distance"><b id="resKm">820 км</b><span id="resTime">~ 14 часов в пути</span></div>
+            <div class="res-road"><div class="res-truck" id="resTruck">🚚</div></div>
+            <div class="res-price"><small>ИТОГО ПОД КЛЮЧ</small><div class="price" id="resPrice">52 400 ₽</div><span id="resPerKm">~ 63 ₽/км</span></div>
+            <a href="#contacts" class="btn btn-primary btn-lg" id="resOrder">Заказать по этой цене</a>
+            <button class="btn btn-ghost" id="resWhatsapp">Написать в WhatsApp</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET -->
+  <section class="section fleet" id="fleet">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>04 — АВТОПАРК</span>
+        <h2 data-reveal>120+ МАШИН <em>В СОБСТВЕННОСТИ</em></h2>
+        <p data-reveal>Не агрегатор. Все тягачи, прицепы и погрузчики — наши, средний возраст 3.2 года.</p>
+      </div>
+      <div class="fleet-filter" data-reveal>
+        <button class="active" data-filter="all">Все</button>
+        <button data-filter="truck">Фуры</button>
+        <button data-filter="spez">Спецтехника</button>
+        <button data-filter="small">Экспресс</button>
+      </div>
+      <div class="fleet-grid">
+        <article class="fleet-card" data-cat="truck" data-reveal data-drive="left">
+          <div class="fleet-visual fv-1"><div class="mini-road"><span class="mini-veh">🚚</span></div></div>
+          <h3>Фура тент / шторка</h3>
+          <div class="fleet-specs"><span>20 т</span><span>82 м³</span><span>13.6 м</span></div>
+          <p>KAMAZ / SITRAK / MAN. Пневмоподвеска, ремни, коники.</p>
+          <div class="fleet-price">от 58 ₽/км <a href="#calc">→</a></div>
+        </article>
+        <article class="fleet-card" data-cat="truck" data-reveal data-drive="right">
+          <div class="fleet-visual fv-2"><div class="mini-road"><span class="mini-veh">🧊</span></div></div>
+          <h3>Рефрижератор</h3>
+          <div class="fleet-specs"><span>20 т</span><span>−25…+25°C</span><span>GPS-темп</span></div>
+          <p>Thermo King. Печать температурного лога для сетей.</p>
+          <div class="fleet-price">от 68 ₽/км <a href="#calc">→</a></div>
+        </article>
+        <article class="fleet-card" data-cat="spez" data-reveal data-drive="left">
+          <div class="fleet-visual fv-3"><div class="mini-road"><span class="mini-veh">🏗️</span></div></div>
+          <h3>Вилочный погрузчик</h3>
+          <div class="fleet-specs"><span>1.5–10 т</span><span>дизель/электро</span><span>вылет 6 м</span></div>
+          <p>Toyota / Heli. Аренда от смены с оператором.</p>
+          <div class="fleet-price">от 1 800 ₽/час <a href="#spec">→</a></div>
+        </article>
+        <article class="fleet-card" data-cat="spez" data-reveal data-drive="right">
+          <div class="fleet-visual fv-4"><div class="mini-road"><span class="mini-veh">🚜</span></div></div>
+          <h3>Трал негабарит</h3>
+          <div class="fleet-specs"><span>40–60 т</span><span>раздвижной</span><span>сопровождение</span></div>
+          <p>Станки, техника, модули. Разрешения берём на себя.</p>
+          <div class="fleet-price">от 95 ₽/км <a href="#contacts">→</a></div>
+        </article>
+        <article class="fleet-card" data-cat="small" data-reveal data-drive="left">
+          <div class="fleet-visual fv-5"><div class="mini-road"><span class="mini-veh">🚐</span></div></div>
+          <h3>Газель / каблук</h3>
+          <div class="fleet-specs"><span>1.5–3 т</span><span>подача 3 ч</span><span>по городу</span></div>
+          <p>Город + межгород до 1 000 км. Экспресс за день.</p>
+          <div class="fleet-price">от 32 ₽/км <a href="#calc">→</a></div>
+        </article>
+        <article class="fleet-card" data-cat="truck" data-reveal data-drive="right">
+          <div class="fleet-visual fv-6"><div class="mini-road"><span class="mini-veh">🚛</span></div></div>
+          <h3>Контейнеровоз / сцепка</h3>
+          <div class="fleet-specs"><span>28 т</span><span>120 м³</span><span>сцепка</span></div>
+          <p>Для лёгких объёмных грузов: мебель, утеплитель.</p>
+          <div class="fleet-price">от 62 ₽/км <a href="#calc">→</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC / FORKLIFT INTERACTIVE -->
+  <section class="section spec" id="spec">
+    <div class="container spec-grid">
+      <div class="spec-info">
+        <span class="section-tag" data-reveal>05 — СПЕЦТЕХНИКА</span>
+        <h2 data-reveal>ПОГРУЗЧИК, КОТОРЫЙ <em>СЛУШАЕТСЯ СКРОЛЛА</em></h2>
+        <p data-reveal>Покрутите страницу вверх-вниз — вилы поднимают паллету. В реальности так же чётко: оператор с допуском, страховка, смена от 8 часов.</p>
+        <ul class="spec-list" data-reveal>
+          <li><b>1.5–3 т</b> — склады, фуры, газели <span>от 1 800 ₽/час</span></li>
+          <li><b>5 т</b> — станки, катушки, ЖБИ <span>от 2 800 ₽/час</span></li>
+          <li><b>7–10 т</b> — контейнеры, негабарит <span>от 4 500 ₽/час</span></li>
+          <li><b>Манипулятор 8 т</b> — сам грузит и везёт <span>от 2 200 ₽/час</span></li>
+        </ul>
+        <div class="spec-cta" data-reveal>
+          <a href="#contacts" class="btn btn-primary">Заказать погрузчик</a>
+          <span class="spec-note">Подача по Москве — 2 часа</span>
+        </div>
+      </div>
+      <div class="spec-visual" data-reveal>
+        <div class="forklift-scene glass">
+          <div class="fork-sky"></div>
+          <div class="fork-ground"></div>
+          <div class="forklift-anim" id="forkliftAnim">
+            <div class="fl-body">🏗️</div>
+            <div class="fl-forks"><div class="fl-pallet" id="flPallet">📦📦<br>1 240 кг</div></div>
+          </div>
+          <div class="fork-meter"><small>ВЫСОТА ВИЛ</small><b id="forkHeight">0.0 м</b><div class="fork-bar"><div id="forkBar"></div></div></div>
+          <p class="fork-hint">↑ скролльте — вилы поднимаются ↑</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEO -->
+  <section class="section geo" id="geo">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>06 — ГЕОГРАФИЯ</span>
+        <h2 data-reveal>ОТ МОСКВЫ <em>ДО ВЛАДИВОСТОКА — 9 000 КМ</em></h2>
+        <p data-reveal>5 хабов, 40 ежедневных направлений, плечевая доставка: магистраль фурой + последняя миля газелью.</p>
+      </div>
+      <div class="geo-grid">
+        <div class="geo-map glass" data-reveal>
+          <svg viewBox="0 0 800 360" class="russia-svg">
+            <!-- Упрощённый контур РФ -->
+            <path d="M60 180 L120 140 L200 130 L280 110 L360 90 L460 80 L560 90 L650 110 L730 150 L700 210 L600 250 L480 270 L360 260 L220 250 L120 230 Z" fill="#151823" stroke="#2c3247" stroke-width="2"/>
+            <path id="routeLine" d="M95 195 C 200 170, 300 150, 400 140 S 600 130, 690 160" fill="none" stroke="#FF6B00" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+            <g class="geo-point" style="--x:95px;--y:195px"><circle cx="95" cy="195" r="7" fill="#FF6B00"/><text x="95" y="220" text-anchor="middle">Москва</text></g>
+            <g class="geo-point"><circle cx="250" cy="165" r="5" fill="#FFB800"/><text x="250" y="185" text-anchor="middle">Казань</text></g>
+            <g class="geo-point"><circle cx="400" cy="140" r="5" fill="#FFB800"/><text x="400" y="160" text-anchor="middle">Екб</text></g>
+            <g class="geo-point"><circle cx="520" cy="150" r="5" fill="#FFB800"/><text x="520" y="170" text-anchor="middle">Новосибирск</text></g>
+            <g class="geo-point"><circle cx="690" cy="160" r="7" fill="#22c55e"/><text x="690" y="185" text-anchor="middle">Владивосток</text></g>
+            <g id="geoTruck"><text x="0" y="0" font-size="26">🚚</text></g>
+          </svg>
+          <div class="geo-legend"><span><i class="dot orange"></i> хаб Falcon</span><span><i class="dot green"></i> пункт выдачи</span><span>линия — активный рейс</span></div>
+        </div>
+        <div class="geo-cards">
+          <div class="geo-card" data-reveal><b>12 ч</b><span>Москва — СПб, сборный ежедневно</span></div>
+          <div class="geo-card" data-reveal><b>3 суток</b><span>Москва — Екатеринбург фурой</span></div>
+          <div class="geo-card" data-reveal><b>7 суток</b><span>Москва — Владивосток с перецепкой</span></div>
+          <div class="geo-card highlight" data-reveal><b>89 регионов</b><span>закрываем даже Якутию и Сахалин</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="section steps" id="steps">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>07 — ЭТАПЫ</span>
+        <h2 data-reveal>ЗАКАЗ ЗА <em>4 ШАГА</em></h2>
+      </div>
+      <div class="steps-line">
+        <div class="step" data-reveal><div class="step-num">1</div><h3>Заявка 2 мин</h3><p>Калькулятор, звонок или WhatsApp. Менеджер фиксирует цену.</p><span class="step-veh">📝</span></div>
+        <div class="step" data-reveal><div class="step-num">2</div><h3>Подача 3 часа</h3><p>Машина + погрузчик приезжают в слот. Фото подачи в SMS.</p><span class="step-veh">🚚</span></div>
+        <div class="step" data-reveal><div class="step-num">3</div><h3>В пути с GPS</h3><p>Трекинг-ссылка, датчик температуры, водитель на связи.</p><span class="step-veh">🛰️</span></div>
+        <div class="step" data-reveal><div class="step-num">4</div><h3>Сдача + документы</h3><p>ЭДО, УПД, фото разгрузки. Оплата после сдачи.</p><span class="step-veh">✅</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="section cases" id="cases">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>08 — КЕЙСЫ</span>
+        <h2 data-reveal>ЧТО МЫ УЖЕ <em>ПЕРЕВЕЗЛИ</em></h2>
+      </div>
+      <div class="cases-grid">
+        <article class="case-card" data-reveal><div class="case-top">🏭 НЕГАБАРИТ</div><h3>Линия 42 тонны: Москва → Казань</h3><p>Трал + сопровождение, разрешения за 4 дня, разгрузка двумя погрузчиками 7т.</p><div class="case-meta"><span>1 200 км</span><span>3 суток</span><span class="green">без царапин</span></div></article>
+        <article class="case-card" data-reveal><div class="case-top">❄️ ХОЛОД</div><h3>Фарма +2…+6°C: СПб → Краснодар</h3><p>2 рефа, лог температуры каждые 15 мин, сдача сети без претензий.</p><div class="case-meta"><span>2 300 км</span><span>2 суток</span><span class="green">0 боя</span></div></article>
+        <article class="case-card" data-reveal><div class="case-top">📦 СБОРНЫЙ</div><h3>84 поставщика в 1 переезд офиса</h3><p>Консолидация на хабе, 6 фур, ночная разгрузка в Москва-Сити.</p><div class="case-meta"><span>240 м³</span><span>5 дней</span><span class="green">−38% бюджета</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>09 — ОТЗЫВЫ</span>
+        <h2 data-reveal>4.9 НА ЯНДЕКСЕ • <em>1 200+ ОТЗЫВОВ</em></h2>
+      </div>
+      <div class="reviews-slider" data-reveal>
+        <div class="reviews-track" id="reviewsTrack">
+          <div class="review-card"><div class="stars-row">★★★★★</div><p>«Везли станки 18 тонн. Погрузчик подали раньше фуры, всё чётко по строповке. Такого ещё не видел.»</p><div class="reviewer"><b>Игорь Савельев</b><span>производство, Казань</span></div></div>
+          <div class="review-card"><div class="stars-row">★★★★★</div><p>«Сборным возим ежемесячно. Цена ниже, чем у прошлой ТК на 20%, а трекинг реально живой.»</p><div class="reviewer"><b>Марина Ким</b><span>e-commerce, Москва</span></div></div>
+          <div class="review-card"><div class="stars-row">★★★★★</div><p>«Реф с лекарствами довезли с идеальным логом. Сеть приняла без единого вопроса.»</p><div class="reviewer"><b>Дмитрий Орлов</b><span>фарма, СПб</span></div></div>
+          <div class="review-card"><div class="stars-row">★★★★★</div><p>«Срочно нужен был трал в пятницу вечером. В понедельник уже ехали. Магия.»</p><div class="reviewer"><b>Алексей Громов</b><span>стройхолдинг, Екб</span></div></div>
+        </div>
+        <div class="slider-nav"><button id="revPrev">←</button><button id="revNext">→</button><span id="revDots"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container faq-grid">
+      <div>
+        <span class="section-tag" data-reveal>10 — FAQ</span>
+        <h2 data-reveal>ЧАСТЫЕ<br><em>ВОПРОСЫ</em></h2>
+        <p data-reveal>Не нашли ответ? Позвоните 8 800 555-35-35 — ответим за минуту.</p>
+        <a href="#contacts" class="btn btn-primary" data-reveal>Задать вопрос</a>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details open><summary>Сколько стоит подача погрузчика?</summary><p>По Москве — от 1 800 ₽/час, минимум 4 часа + 1 час подачи. По области + 40 ₽/км. Оператор и топливо уже включены.</p></details>
+        <details><summary>Вы работаете с НДС / без НДС?</summary><p>Оба варианта. ООО на ОСНО с НДС 22%, есть машины от ИП без НДС — дешевле на 12–15%. Закрывающие: УПД + ЭДО.</p></details>
+        <details><summary>Что если груз повредят?</summary><p>Отвечаем по договору + страхование до 15 млн ₽ по умолчанию. Ущерб возмещаем за 5 рабочих дней, без судов — 97% случаев.</p></details>
+        <details><summary>Как отследить груз?</summary><p>Присылаем живую GPS-ссылку + SMS при выезде/прибытии. Для рефов — температура онлайн. Попробуйте демо кнопкой «Трекинг» в шапке.</p></details>
+        <details><summary>Возьмётесь за срочный заказ сегодня?</summary><p>Да, если машина свободна. В миллионниках подача 2–3 часа. Экспресс-тариф +30%, едем без перецепок двумя водителями.</p></details>
+        <details><summary>Работаете по договору с отсрочкой?</summary><p>Для юрлиц от 3 рейсов — отсрочка 14–30 дней, лимит до 2 млн ₽. Для новых — предоплата 30%.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTS -->
+  <section class="section contacts" id="contacts">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" data-reveal>11 — КОНТАКТЫ</span>
+        <h2 data-reveal>ЗАКАЖИТЕ <em>ПРЯМО СЕЙЧАС</em></h2>
+        <p data-reveal>Ответим за 5 минут в рабочее время. Ночью — дежурный логист.</p>
+      </div>
+      <div class="contacts-grid">
+        <form class="contact-form glass" id="orderForm" data-reveal>
+          <h3>Оставить заявку</h3>
+          <div class="form-row"><label>Имя<input required id="fName" placeholder="Иван"></label><label>Телефон<input required id="fPhone" placeholder="+7 ___ ___-__-__" inputmode="tel"></label></div>
+          <label>Что везём?<textarea id="fMsg" rows="3" placeholder="Например: 10 паллет, 8 тонн, Москва → Казань, нужен погрузчик"></textarea></label>
+          <label class="check"><input type="checkbox" checked> Согласен на обработку персональных данных</label>
+          <button class="btn btn-primary btn-lg" type="submit">Получить точную цену →</button>
+          <p class="form-note">🔒 Не спамим. Только цена и слоты подачи.</p>
+        </form>
+        <div class="contact-info" data-reveal>
+          <a class="c-card" href="tel:+78005553535"><small>ДИСПЕТЧЕР 24/7</small><b>8 800 555-35-35</b><span>бесплатно по России</span></a>
+          <a class="c-card" href="mailto:zakaz@falcontrans.ru"><small>ПОЧТА</small><b>zakaz@falcontrans.ru</b><span>смета за 15 минут</span></a>
+          <div class="c-card"><small>ХАБ МОСКВА</small><b>г. Москва, ул. Логистическая, 12</b><span>ежедневно 08:00–22:00</span></div>
+          <div class="c-social"><a href="#">WhatsApp</a><a href="#">Telegram</a><a href="#">VK</a><a href="#">Дзен</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-road"><div class="footer-truck" id="footerTruck">🚚 💨</div></div>
+    <div class="container footer-grid">
+      <div><a href="#hero" class="logo"><span class="logo-badge"><svg viewBox="0 0 40 40"><path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="#FF6B00"/></svg></span><span class="logo-text">FALCON<em>TRANS</em></span></a><p>Федеральная транспортная компания. 12 лет везём Россию.</p><p class="copy">© 2026 Falcon Trans. Все права защищены.</p></div>
+      <div><b>Услуги</b><a href="#services">Фуры 20т</a><a href="#spec">Погрузчики</a><a href="#calc">Рефрижераторы</a><a href="#services">Негабарит</a></div>
+      <div><b>Компания</b><a href="#fleet">Автопарк</a><a href="#geo">География</a><a href="#cases">Кейсы</a><a href="#reviews">Отзывы</a></div>
+      <div><b>Контакты</b><a href="tel:+78005553535">8 800 555-35-35</a><a href="mailto:zakaz@falcontrans.ru">zakaz@falcontrans.ru</a><span>Москва, ул. Логистическая, 12</span></div>
+    </div>
+    <div class="container footer-bottom"><span>Сделано с ❤️ для дорог России</span><a href="#hero">Наверх ↑</a></div>
+  </footer>
+
+  <!-- TRACK MODAL -->
+  <div class="modal" id="trackModal">
+    <div class="modal-box glass">
+      <button class="modal-close" id="trackClose">✕</button>
+      <h3>📦 Отследить груз</h3>
+      <p>Введите номер накладной (например FT-8842)</p>
+      <div class="track-row"><input id="trackInput" placeholder="FT-____" value="FT-8842"><button class="btn btn-primary" id="trackBtn">Найти</button></div>
+      <div class="track-result" id="trackResult">
+        <div class="track-line"><div class="track-fill" id="trackFill"></div><div class="track-point p1 done">●<span>Москва<br>выехал</span></div><div class="track-point p2 done">●<span>Владимир<br>в пути</span></div><div class="track-point p3 active">●<span>Казань<br>214 км</span></div><div class="track-point p4">●<span>Вручение</span></div></div>
+        <p id="trackText">Машина FT-8842 • водитель Андрей • +4.2°C • прибытие сегодня 19:40 • <b class="green">идёт по графику</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast">✅ Заявка отправлена! Менеджер перезвонит за 5 минут.</div>
+
+  <!-- FLOAT -->
+  <a href="tel:+78005553535" class="float-call" title="Позвонить">📞</a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
