@@ -1,436 +1,379 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falcon Trans — Логистика по всей России</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falcon Trans — грузоперевозки по всей России за 1–7 дней</title>
+<meta name="description" content="Falcon Trans — транспортная компания полного цикла. Фуры, рефрижераторы, тралы и погрузчики. 89 регионов, GPS-контроль, страховка, склады. Расчёт за 15 минут.">
+<meta property="og:title" content="Falcon Trans — везём через всю Россию">
+<meta property="og:description" content="Собственный автопарк, спецтехника, отслеживание в реальном времени.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M4 28L14 10L20 20L26 8L36 28H4Z' fill='%23FF5C00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="noise"></div>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#hero" class="logo">
-                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
-                    <path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="url(#lg)"/>
-                    <defs><linearGradient id="lg" x1="4" y1="8" x2="36" y2="28"><stop stop-color="#FF6B00"/><stop offset="1" stop-color="#FFB800"/></linearGradient></defs>
-                </svg>
-                <span>FALCON<em>TRANS</em></span>
-            </a>
-            <div class="nav-links">
-                <a href="#services">Услуги</a>
-                <a href="#fleet">Автопарк</a>
-                <a href="#geo">География</a>
-                <a href="#tech">Технологии</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-            <a href="tel:+78005553535" class="nav-phone">8 800 555-35-35</a>
-            <button class="burger" id="burger" aria-label="Меню">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-mark">FALCON TRANS</div>
+  <div class="preloader-road"><span></span></div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand" aria-label="Falcon Trans — на главную">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="#FF5C00"/></svg>
+      <span>FALCON TRANS</span>
+    </a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#fleet">Автопарк</a>
+      <a href="#calc">Расчёт</a>
+      <a href="#geo">Маршруты</a>
+      <a href="#contacts">Контакты</a>
     </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services">Услуги</a>
-        <a href="#fleet">Автопарк</a>
-        <a href="#geo">География</a>
-        <a href="#tech">Технологии</a>
-        <a href="#contacts">Контакты</a>
+    <div class="nav-side">
+      <a class="nav-tel" href="tel:+78005553535">8 800 555-35-35</a>
+      <a class="btn-small" href="#calc">Заказать</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span></button>
     </div>
+  </div>
+</header>
 
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="grid-lines"></div>
-            <div class="glow glow-1"></div>
-            <div class="glow glow-2"></div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-tag" data-reveal>ЛОГИСТИКА ПО ВСЕЙ РОССИИ</div>
-            <h1 class="hero-title">
-                <span class="line" data-reveal>ДОСТАВИМ</span>
-                <span class="line" data-reveal>ГРУЗ В ЛЮБУЮ</span>
-                <span class="line accent" data-reveal>ТОЧКУ СТРАНЫ</span>
-            </h1>
-            <p class="hero-sub" data-reveal>Собственный автопарк, спецтехника и отслеживание в реальном времени. Работаем 24/7 без выходных.</p>
-            <div class="hero-cta" data-reveal>
-                <a href="#contacts" class="btn btn-primary">Рассчитать стоимость</a>
-                <a href="#services" class="btn btn-ghost">Наши услуги</a>
-            </div>
-            <div class="hero-stats" data-reveal>
-                <div class="stat"><b data-count="12">0</b><span>лет на рынке</span></div>
-                <div class="stat"><b data-count="89">0</b><span>регионов РФ</span></div>
-                <div class="stat"><b data-count="48000">0</b><span>рейсов в год</span></div>
-                <div class="stat"><b data-count="99" data-suffix="%">0</b><span>в срок</span></div>
-            </div>
-        </div>
-        <div class="hero-truck" id="heroTruck">
-            <svg viewBox="0 0 600 260" fill="none" class="truck-svg">
-                <g class="truck-body">
-                    <path d="M40 120 L40 60 L280 60 L280 120 Z" fill="#1a1d24" stroke="#2a2e38" stroke-width="2"/>
-                    <path d="M280 70 L420 70 L470 110 L470 120 L280 120 Z" fill="#22262f" stroke="#2a2e38" stroke-width="2"/>
-                    <path d="M295 78 L410 78 L450 108 L295 108 Z" fill="#0d0f14"/>
-                    <rect x="50" y="70" width="60" height="40" rx="4" fill="#FF6B00" opacity="0.9"/>
-                    <text x="80" y="96" text-anchor="middle" fill="#0a0a0a" font-family="Unbounded" font-weight="800" font-size="16">FT</text>
-                    <rect x="120" y="70" width="150" height="40" rx="4" fill="#14161c"/>
-                    <text x="195" y="96" text-anchor="middle" fill="#e8eaf0" font-family="Unbounded" font-weight="600" font-size="14">FALCON TRANS</text>
-                    <rect x="430" y="85" width="30" height="20" rx="3" fill="#FFB800"/>
-                </g>
-                <g class="wheel" style="transform-origin: 120px 150px">
-                    <circle cx="120" cy="150" r="26" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
-                    <circle cx="120" cy="150" r="12" fill="#1a1d24" stroke="#FF6B00" stroke-width="2"/>
-                    <circle cx="120" cy="150" r="4" fill="#FF6B00"/>
-                </g>
-                <g class="wheel" style="transform-origin: 220px 150px">
-                    <circle cx="220" cy="150" r="26" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
-                    <circle cx="220" cy="150" r="12" fill="#1a1d24" stroke="#FF6B00" stroke-width="2"/>
-                    <circle cx="220" cy="150" r="4" fill="#FF6B00"/>
-                </g>
-                <g class="wheel" style="transform-origin: 400px 150px">
-                    <circle cx="400" cy="150" r="26" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
-                    <circle cx="400" cy="150" r="12" fill="#1a1d24" stroke="#FF6B00" stroke-width="2"/>
-                    <circle cx="400" cy="150" r="4" fill="#FF6B00"/>
-                </g>
-                <g class="wheel" style="transform-origin: 450px 150px">
-                    <circle cx="450" cy="150" r="26" fill="#0a0a0a" stroke="#333" stroke-width="3"/>
-                    <circle cx="450" cy="150" r="12" fill="#1a1d24" stroke="#FF6B00" stroke-width="2"/>
-                    <circle cx="450" cy="150" r="4" fill="#FF6B00"/>
-                </g>
-                <line x1="0" y1="176" x2="600" y2="176" stroke="#2a2e38" stroke-width="2" stroke-dasharray="20 14" class="road"/>
-            </svg>
-        </div>
-        <div class="scroll-hint">
-            <span>СКРОЛЛ</span>
-            <div class="scroll-line"><div class="scroll-dot"></div></div>
-        </div>
-    </section>
+<div class="mmenu" id="mmenu" hidden>
+  <a href="#services">Услуги</a>
+  <a href="#fleet">Автопарк</a>
+  <a href="#calc">Расчёт стоимости</a>
+  <a href="#geo">Маршруты</a>
+  <a href="#contacts">Контакты</a>
+  <a class="btn-primary" href="tel:+78005553535">Позвонить</a>
+</div>
 
-    <section class="marquee-section">
-        <div class="marquee">
-            <div class="marquee-track">
-                <span>ПЕРЕВОЗКИ ПО РОССИИ</span><i>◆</i>
-                <span>СПЕЦТЕХНИКА</span><i>◆</i>
-                <span>СБОРНЫЕ ГРУЗЫ</span><i>◆</i>
-                <span>ЭКСПЕДИРОВАНИЕ</span><i>◆</i>
-                <span>СКЛАДСКОЕ ХРАНЕНИЕ</span><i>◆</i>
-                <span>ПЕРЕВОЗКИ ПО РОССИИ</span><i>◆</i>
-                <span>СПЕЦТЕХНИКА</span><i>◆</i>
-                <span>СБОРНЫЕ ГРУЗЫ</span><i>◆</i>
-                <span>ЭКСПЕДИРОВАНИЕ</span><i>◆</i>
-                <span>СКЛАДСКОЕ ХРАНЕНИЕ</span><i>◆</i>
-            </div>
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="hero-meta">Москва — Владивосток · 9 000 км · ежедневно на линии 140 машин</p>
+      <h1>Везём грузы через всю Россию</h1>
+      <p class="lead">Фуры, рефрижераторы, тралы и погрузчики в одних руках. Даём срок, следим по GPS и отвечаем деньгами за опоздание.</p>
+      <div class="hero-actions">
+        <a href="#calc" class="btn-primary" data-magnet>Рассчитать за минуту</a>
+        <a href="#fleet" class="hero-link">Смотреть автопарк</a>
+      </div>
+      <dl class="hero-numbers">
+        <div><dt>12 лет</dt><dd>возим без срывов</dd></div>
+        <div><dt data-count="89">0</dt><dd>регионов доставки</dd></div>
+        <div><dt><span data-count="48200">0</span></dt><dd>рейсов в прошлом году</dd></div>
+        <div><dt>98,7%</dt><dd>приехали в срок</dd></div>
+      </dl>
+    </div>
+    <div class="hero-board">
+      <div class="board-card" id="boardCard">
+        <div class="board-top">
+          <span class="live-dot"></span>
+          <span>Рейс FT-2417 · сейчас на трассе</span>
         </div>
-    </section>
-
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-tag" data-reveal>УСЛУГИ</span>
-                <h2 data-reveal>ПОЛНЫЙ СПЕКТР<br><em>ЛОГИСТИЧЕСКИХ РЕШЕНИЙ</em></h2>
-            </div>
-            <div class="services-grid">
-                <article class="service-card" data-reveal>
-                    <div class="service-num">01</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <path d="M4 30L14 12L20 22L26 10L36 30H4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                        <path d="M4 30H36" stroke="currentColor" stroke-width="2.5"/>
-                    </svg>
-                    <h3>Перевозки по России</h3>
-                    <p>Автомобильные грузоперевозки от Калининграда до Владивостока. Тенты, рефрижераторы, тралы.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-                <article class="service-card" data-reveal>
-                    <div class="service-num">02</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <rect x="6" y="18" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
-                        <path d="M26 24H36L42 30V34H26V24Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                        <circle cx="14" cy="38" r="4" stroke="currentColor" stroke-width="2.5"/>
-                        <circle cx="34" cy="38" r="4" stroke="currentColor" stroke-width="2.5"/>
-                    </svg>
-                    <h3>Спецтехника</h3>
-                    <p>Вилочные погрузчики, краны, экскаваторы и другая техника для погрузочно-разгрузочных работ.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-                <article class="service-card" data-reveal>
-                    <div class="service-num">03</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <path d="M8 40V20L24 8L40 20V40" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                        <rect x="18" y="28" width="12" height="12" stroke="currentColor" stroke-width="2.5"/>
-                    </svg>
-                    <h3>Складское хранение</h3>
-                    <p>Тёплые и холодные склады класса А. Ответственное хранение, маркировка, комплектация.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-                <article class="service-card" data-reveal>
-                    <div class="service-num">04</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
-                        <path d="M24 12V24L32 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                    <h3>Экспедирование</h3>
-                    <p>Полное сопровождение груза: страхование, контроль маршрута, отчётность в реальном времени.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-                <article class="service-card" data-reveal>
-                    <div class="service-num">05</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <path d="M6 36L18 24L26 30L42 14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M34 14H42V22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <h3>Мультимодальные</h3>
-                    <p>Комбинируем авто, ж/д и морские перевозки для оптимальной стоимости и сроков.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-                <article class="service-card" data-reveal>
-                    <div class="service-num">06</div>
-                    <svg class="service-icon" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 6L40 12V24C40 34 33 41 24 44C15 41 8 34 8 24V12L24 6Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                        <path d="M16 24L22 30L33 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <h3>Страхование грузов</h3>
-                    <p>Полное страхование ответственности. Возмещение ущерба без бюрократии за 5 рабочих дней.</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </article>
-            </div>
+        <div class="board-route">
+          <div><strong>Москва</strong><span>Склад Белый Раст · 08:40</span></div>
+          <div class="board-line" aria-hidden="true"><i></i><em class="board-truck" id="boardTruck">▲</em></div>
+          <div class="board-right"><strong>Казань</strong><span>прибытие завтра · 06:10</span></div>
         </div>
-    </section>
-
-    <section class="fleet" id="fleet">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-tag" data-reveal>АВТОПАРК</span>
-                <h2 data-reveal>ТЕХНИКА ДЛЯ<br><em>ЛЮБЫХ ЗАДАЧ</em></h2>
-            </div>
-            <div class="fleet-showcase">
-                <div class="fleet-item" data-reveal>
-                    <div class="fleet-visual">
-                        <svg viewBox="0 0 320 160" fill="none" class="fleet-svg">
-                            <path d="M20 80 L20 40 L150 40 L150 80 Z" fill="#1a1d24" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M150 46 L230 46 L260 70 L260 80 L150 80 Z" fill="#22262f" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M158 52 L224 52 L246 68 L158 68 Z" fill="#0d0f14"/>
-                            <circle cx="70" cy="96" r="18" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="70" cy="96" r="7" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="110" cy="96" r="18" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="110" cy="96" r="7" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="210" cy="96" r="18" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="210" cy="96" r="7" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="240" cy="96" r="18" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="240" cy="96" r="7" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <line x1="0" y1="114" x2="320" y2="114" stroke="#2a2e38" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>Тягачи и полуприцепы</h3>
-                        <p>Volvo FH, Scania R, MAN TGX. Грузоподъёмность до 25 тонн, еврофуры 120 м³.</p>
-                        <div class="fleet-specs"><span>25 т</span><span>120 м³</span><span>Евро-6</span></div>
-                    </div>
-                </div>
-                <div class="fleet-item reverse" data-reveal>
-                    <div class="fleet-visual">
-                        <svg viewBox="0 0 320 160" fill="none" class="fleet-svg">
-                            <rect x="30" y="50" width="100" height="50" rx="4" fill="#1a1d24" stroke="#2a2e38" stroke-width="2"/>
-                            <rect x="140" y="60" width="60" height="40" rx="4" fill="#22262f" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M200 70 L280 70 L280 100 L200 100" fill="#14161c" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M210 70 L210 40 L270 40" stroke="#FF6B00" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="60" cy="110" r="14" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="60" cy="110" r="5" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="110" cy="110" r="14" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="110" cy="110" r="5" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="230" cy="110" r="14" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="230" cy="110" r="5" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <line x1="0" y1="124" x2="320" y2="124" stroke="#2a2e38" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>Вилочные погрузчики</h3>
-                        <p>Toyota, Linde, Hyster. Грузоподъёмность 1.5–10 тонн. Работаем на ваших складах 24/7.</p>
-                        <div class="fleet-specs"><span>1.5–10 т</span><span>Высота 6 м</span><span>24/7</span></div>
-                    </div>
-                </div>
-                <div class="fleet-item" data-reveal>
-                    <div class="fleet-visual">
-                        <svg viewBox="0 0 320 160" fill="none" class="fleet-svg">
-                            <path d="M20 90 L20 60 L120 60 L120 90 Z" fill="#1a1d24" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M120 66 L200 66 L230 84 L230 90 L120 90 Z" fill="#22262f" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M128 72 L194 72 L216 84 L128 84 Z" fill="#0d0f14"/>
-                            <rect x="240" y="50" width="60" height="40" rx="4" fill="#14161c" stroke="#2a2e38" stroke-width="2"/>
-                            <path d="M250 50 L250 30 L290 30 L290 50" stroke="#FFB800" stroke-width="2.5" stroke-linecap="round"/>
-                            <circle cx="60" cy="104" r="16" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="60" cy="104" r="6" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="100" cy="104" r="16" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="100" cy="104" r="6" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="180" cy="104" r="16" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="180" cy="104" r="6" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="210" cy="104" r="16" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="210" cy="104" r="6" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <circle cx="270" cy="104" r="16" fill="#0a0a0a" stroke="#333" stroke-width="2.5"/>
-                            <circle cx="270" cy="104" r="6" fill="#1a1d24" stroke="#FF6B00" stroke-width="1.5"/>
-                            <line x1="0" y1="120" x2="320" y2="120" stroke="#2a2e38" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <div class="fleet-info">
-                        <h3>Негабаритные перевозки</h3>
-                        <p>Низкорамные тралы и перевозка негабаритных грузов до 60 тонн. Сопровождение ГИБДД.</p>
-                        <div class="fleet-specs"><span>60 т</span><span>30 м</span><span>Сопровождение</span></div>
-                    </div>
-                </div>
-            </div>
+        <div class="board-meta">
+          <div><b>+4°C</b><span>рефрижератор</span></div>
+          <div><b>812 км</b><span>осталось</span></div>
+          <div><b>64 км/ч</b><span>средняя</span></div>
         </div>
-    </section>
+        <svg class="board-map" viewBox="0 0 400 140" aria-hidden="true">
+          <path d="M10 110 Q 110 20 200 80 T 390 30" fill="none" stroke="#2A2E36" stroke-width="2" stroke-dasharray="6 8"/>
+          <path class="board-path" d="M10 110 Q 110 20 200 80 T 390 30" fill="none" stroke="#FF5C00" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="10" cy="110" r="5" fill="#F2F3F5"/><circle cx="390" cy="30" r="5" fill="#FF5C00"/>
+        </svg>
+      </div>
+      <div class="board-ticker">
+        <span>Приняли заявку · Тверь → Самара · 4,2 т</span>
+        <span>Выгрузились · Новосибирск · без замечаний</span>
+        <span>На погрузке · 6 погрузчиков · Казань</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-asphalt" aria-hidden="true">
+    <div class="asphalt-lane lane-a"></div>
+    <div class="asphalt-lane lane-b"></div>
+  </div>
+</section>
 
-    <section class="geo" id="geo">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-tag" data-reveal>ГЕОГРАФИЯ</span>
-                <h2 data-reveal>РАБОТАЕМ ПО ВСЕЙ<br><em>РОССИИ И СНГ</em></h2>
-            </div>
-            <div class="geo-map" data-reveal>
-                <svg viewBox="0 0 800 400" fill="none" class="map-svg">
-                    <path d="M60 180 L120 140 L200 160 L280 120 L360 140 L440 100 L520 120 L600 90 L680 110 L740 80 L740 200 L680 220 L600 200 L520 230 L440 210 L360 240 L280 220 L200 250 L120 230 L60 260 Z" fill="#14161c" stroke="#2a2e38" stroke-width="2"/>
-                    <g class="map-dot" style="--d:0s"><circle cx="120" cy="180" r="6" fill="#FF6B00"/><circle cx="120" cy="180" r="12" fill="#FF6B00" opacity="0.3"/></g>
-                    <g class="map-dot" style="--d:0.2s"><circle cx="280" cy="160" r="6" fill="#FF6B00"/><circle cx="280" cy="160" r="12" fill="#FF6B00" opacity="0.3"/></g>
-                    <g class="map-dot" style="--d:0.4s"><circle cx="440" cy="140" r="6" fill="#FF6B00"/><circle cx="440" cy="140" r="12" fill="#FF6B00" opacity="0.3"/></g>
-                    <g class="map-dot" style="--d:0.6s"><circle cx="600" cy="120" r="6" fill="#FF6B00"/><circle cx="600" cy="120" r="12" fill="#FF6B00" opacity="0.3"/></g>
-                    <g class="map-dot" style="--d:0.8s"><circle cx="700" cy="100" r="6" fill="#FF6B00"/><circle cx="700" cy="100" r="12" fill="#FF6B00" opacity="0.3"/></g>
-                    <path class="map-route" d="M120 180 Q200 140 280 160 T440 140 T600 120 T700 100" stroke="#FF6B00" stroke-width="2" stroke-dasharray="8 6" fill="none"/>
-                    <text x="120" y="205" fill="#8a8f9e" font-size="12" font-family="Inter">Москва</text>
-                    <text x="280" y="185" fill="#8a8f9e" font-size="12" font-family="Inter">Екатеринбург</text>
-                    <text x="440" y="165" fill="#8a8f9e" font-size="12" font-family="Inter">Новосибирск</text>
-                    <text x="600" y="145" fill="#8a8f9e" font-size="12" font-family="Inter">Красноярск</text>
-                    <text x="660" y="85" fill="#8a8f9e" font-size="12" font-family="Inter">Владивосток</text>
-                </svg>
-            </div>
-            <div class="geo-cities" data-reveal>
-                <span>Москва</span><span>Санкт-Петербург</span><span>Новосибирск</span><span>Екатеринбург</span>
-                <span>Казань</span><span>Краснодар</span><span>Владивосток</span><span>Сочи</span>
-                <span>Калининград</span><span>Мурманск</span><span>Хабаровск</span><span>Иркутск</span>
-            </div>
+<!-- TRUST -->
+<div class="trust">
+  <div class="wrap trust-row">
+    <span>Нам доверяют поставки</span>
+    <div class="marquee" aria-label="Клиенты"><div class="marquee-track">
+      <b>СтройДом</b><b>СеверСталь Трейд</b><b>АгроВолга</b><b>ТехноЛайн</b><b>МебельГрад</b><b>ФармСклад</b><b>СтройДом</b><b>СеверСталь Трейд</b><b>АгроВолга</b><b>ТехноЛайн</b><b>МебельГрад</b><b>ФармСклад</b>
+    </div></div>
+  </div>
+</div>
+
+<!-- SERVICES BENTO -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Закрываем всю логистику, а не один рейс</h2>
+      <p>Один договор, один менеджер и одна ответственность — от забора груза до выгрузки на вашем складе.</p>
+    </div>
+    <div class="bento">
+      <article class="b-card b-big reveal">
+        <div class="b-visual b-road" aria-hidden="true">
+          <svg viewBox="0 0 520 180"><rect x="0" y="120" width="520" height="10" fill="#22262E"/><rect x="0" y="123" width="520" height="4" fill="#FF5C00" opacity=".9" class="dashmove"/><g class="vmove v1"><rect x="40" y="60" width="220" height="60" rx="6" fill="#171A20" stroke="#333945" stroke-width="2"/><rect x="270" y="72" width="120" height="48" rx="6" fill="#20242D" stroke="#333945" stroke-width="2"/><circle cx="120" cy="130" r="16" fill="#0B0D10" stroke="#FF5C00" stroke-width="3"/><circle cx="170" cy="130" r="16" fill="#0B0D10" stroke="#3A3F4B" stroke-width="3"/><circle cx="330" cy="130" r="16" fill="#0B0D10" stroke="#3A3F4B" stroke-width="3"/></g></svg>
         </div>
-    </section>
-
-    <section class="tech" id="tech">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-tag" data-reveal>ТЕХНОЛОГИИ</span>
-                <h2 data-reveal>КОНТРОЛЬ НА КАЖДОМ<br><em>ЭТАПЕ ДОСТАВКИ</em></h2>
-            </div>
-            <div class="tech-grid">
-                <div class="tech-card" data-reveal>
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M24 14V24L31 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>GPS-мониторинг</h3>
-                    <p>Местоположение груза каждые 30 секунд. Уведомления о прибытии на точку.</p>
-                </div>
-                <div class="tech-card" data-reveal>
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <rect x="8" y="12" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2.5"/>
-                            <path d="M16 20H32M16 26H26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Электронный документооборот</h3>
-                    <p>ТТН, накладные и акты в электронном виде. Подписание за 2 минуты.</p>
-                </div>
-                <div class="tech-card" data-reveal>
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <path d="M10 38V22L24 10L38 22V38" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                            <rect x="18" y="26" width="12" height="12" stroke="currentColor" stroke-width="2.5"/>
-                        </svg>
-                    </div>
-                    <h3>Личный кабинет</h3>
-                    <p>История перевозок, аналитика расходов, управление заявками онлайн.</p>
-                </div>
-                <div class="tech-card" data-reveal>
-                    <div class="tech-icon">
-                        <svg viewBox="0 0 48 48" fill="none">
-                            <path d="M24 6L40 12V24C40 34 33 41 24 44C15 41 8 34 8 24V12L24 6Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-                            <path d="M16 24L22 30L33 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Страхование онлайн</h3>
-                    <p>Оформление полиса за 5 минут. Покрытие до 5 млн рублей на груз.</p>
-                </div>
-            </div>
+        <h3>Междугородние перевозки</h3>
+        <p>Тенты 20–120 м³, рефрижераторы −20…+20°C, сцепки и одиночки. Ежедневные выходы из Москвы, Питера, Казани и Новосибирска.</p>
+        <a href="#calc">Посчитать рейс</a>
+      </article>
+      <article class="b-card reveal">
+        <div class="b-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 140"><rect x="20" y="50" width="90" height="50" rx="5" fill="#171A20" stroke="#333945" stroke-width="2"/><rect x="115" y="60" width="50" height="40" rx="5" fill="#20242D" stroke="#333945" stroke-width="2"/><path d="M165 70h55v30h-55" fill="none" stroke="#FF5C00" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="108" r="11" fill="#0B0D10" stroke="#FF5C00" stroke-width="2.5"/><circle cx="90" cy="108" r="11" fill="#0B0D10" stroke="#3A3F4B" stroke-width="2.5"/></svg>
         </div>
-    </section>
-
-    <section class="cta" id="contacts">
-        <div class="container">
-            <div class="cta-box" data-reveal>
-                <div class="cta-content">
-                    <h2>ГОТОВЫ ОТПРАВИТЬ ВАШ ГРУЗ?</h2>
-                    <p>Оставьте заявку — менеджер рассчитает стоимость за 15 минут и перезвонит в рабочее время.</p>
-                    <form class="cta-form" id="ctaForm">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="tel" placeholder="Телефон" required>
-                        <input type="text" placeholder="Маршрут (откуда — куда)">
-                        <button type="submit" class="btn btn-primary">Получить расчёт</button>
-                    </form>
-                    <p class="cta-note" id="formNote" hidden>Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
-                </div>
-                <div class="cta-visual">
-                    <svg viewBox="0 0 400 300" fill="none" class="cta-svg">
-                        <circle cx="200" cy="150" r="100" stroke="#FF6B00" stroke-width="1" opacity="0.3"/>
-                        <circle cx="200" cy="150" r="70" stroke="#FF6B00" stroke-width="1" opacity="0.5"/>
-                        <circle cx="200" cy="150" r="40" stroke="#FF6B00" stroke-width="1" opacity="0.7"/>
-                        <path d="M160 150 L190 180 L250 120" stroke="#FF6B00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
+        <h3>Погрузчики с водителем</h3>
+        <p>Toyota и Linde 1,5–10 т. Приедем на ваш склад или дадим технику в аренду на месяц.</p>
+        <span class="b-price">от 1 900 ₽/час</span>
+      </article>
+      <article class="b-card reveal">
+        <h3>Негабарит и тралы</h3>
+        <p>Станки, спецтехника, модули до 60 т. Разрешения, машины прикрытия, согласование с ГИБДД берём на себя.</p>
+        <div class="chips"><span>низкорамники</span><span>разрешения за 3 дня</span></div>
+      </article>
+      <article class="b-card reveal">
+        <h3>Склады ответхранения</h3>
+        <p>Тёплые и холодные склады класса А в 6 городах. Примем, пересчитаем, промаркируем и отгрузим по вашей заявке.</p>
+        <span class="b-price">от 18 ₽/паллето-сутки</span>
+      </article>
+      <article class="b-card b-wide reveal">
+        <div>
+          <h3>Сборные грузы и экспедирование</h3>
+          <p>Не нужно платить за целую фуру. Соберём ваш груз с другими, застрахуем и привезём с полным пакетом документов в ЭДО.</p>
         </div>
-    </section>
+        <strong>от 9 ₽/кг</strong>
+      </article>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#hero" class="logo">
-                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
-                            <path d="M4 28L14 10L20 20L26 8L36 28H4Z" fill="url(#lg2)"/>
-                            <defs><linearGradient id="lg2" x1="4" y1="8" x2="36" y2="28"><stop stop-color="#FF6B00"/><stop offset="1" stop-color="#FFB800"/></linearGradient></defs>
-                        </svg>
-                        <span>FALCON<em>TRANS</em></span>
-                    </a>
-                    <p>Надёжный логистический партнёр для вашего бизнеса с 2014 года.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Услуги</h4>
-                    <a href="#services">Перевозки по России</a>
-                    <a href="#services">Спецтехника</a>
-                    <a href="#services">Складское хранение</a>
-                    <a href="#services">Экспедирование</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Компания</h4>
-                    <a href="#fleet">Автопарк</a>
-                    <a href="#geo">География</a>
-                    <a href="#tech">Технологии</a>
-                    <a href="#contacts">Контакты</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <a href="tel:+78005553535">8 800 555-35-35</a>
-                    <a href="mailto:info@falcontrans.ru">info@falcontrans.ru</a>
-                    <span>Москва, ул. Логистическая, 1</span>
-                    <span>Пн–Вс: 24/7</span>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 Falcon Trans. Все права защищены.</span>
-                <span>Сделано в России</span>
-            </div>
+<!-- HIGHWAY : signature scroll -->
+<section class="highway" id="highway" aria-label="Как движется ваша доставка">
+  <div class="wrap">
+    <div class="sec-head light">
+      <h2>Листайте — техника уже едет</h2>
+      <p>Скорость каждой машины привязана к скроллу. Так же прозрачно движется и ваш груз — видно каждый километр.</p>
+    </div>
+  </div>
+  <div class="road-stage" id="roadStage">
+    <div class="km" aria-hidden="true"><span>0 км</span><span>2 300 км</span><span>4 600 км</span><span>9 000 км</span></div>
+    <!-- van -->
+    <div class="vehicle van" id="vVan" aria-hidden="true">
+      <svg viewBox="0 0 300 120"><rect x="20" y="30" width="170" height="55" rx="8" fill="#E8EAEE"/><rect x="190" y="42" width="70" height="43" rx="6" fill="#20242D"/><rect x="198" y="48" width="40" height="20" rx="3" fill="#0B0D10"/><circle cx="80" cy="92" r="15" fill="#0B0D10" stroke="#FF5C00" stroke-width="3" class="wheel"/><circle cx="220" cy="92" r="15" fill="#0B0D10" stroke="#3A3F4B" stroke-width="3" class="wheel"/><rect x="30" y="42" width="46" height="18" rx="3" fill="#FF5C00"/><text x="53" y="55" text-anchor="middle" font-size="11" font-weight="800" fill="#0B0D10" font-family="Inter">FT</text></svg>
+      <em>Газель · город</em>
+    </div>
+    <!-- truck -->
+    <div class="vehicle truck" id="vTruck" aria-hidden="true">
+      <svg viewBox="0 0 560 170"><rect x="20" y="40" width="300" height="70" rx="8" fill="#171A20" stroke="#3A3F4B" stroke-width="2"/><rect x="330" y="52" width="150" height="58" rx="8" fill="#FF5C00"/><text x="405" y="88" text-anchor="middle" font-family="Unbounded" font-weight="800" font-size="22" fill="#0B0D10">FALCON</text><circle cx="110" cy="122" r="20" fill="#0B0D10" stroke="#FF5C00" stroke-width="4" class="wheel"/><circle cx="170" cy="122" r="20" fill="#0B0D10" stroke="#3A3F4B" stroke-width="4" class="wheel"/><circle cx="380" cy="122" r="20" fill="#0B0D10" stroke="#3A3F4B" stroke-width="4" class="wheel"/><circle cx="430" cy="122" r="20" fill="#0B0D10" stroke="#FF5C00" stroke-width="4" class="wheel"/></svg>
+      <em>Фура 20 т · Москва — Новосибирск</em>
+    </div>
+    <!-- forklift -->
+    <div class="vehicle fork" id="vFork" aria-hidden="true">
+      <svg viewBox="0 0 320 140"><rect x="40" y="50" width="110" height="50" rx="6" fill="#FF5C00"/><rect x="150" y="60" width="50" height="40" rx="5" fill="#20242D" stroke="#3A3F4B" stroke-width="2"/><path d="M200 70h70v40" fill="none" stroke="#F2F3F5" stroke-width="5" stroke-linecap="round"/><rect x="255" y="95" width="40" height="14" rx="2" fill="#8A8F9E"/><circle cx="75" cy="108" r="13" fill="#0B0D10" stroke="#F2F3F5" stroke-width="3" class="wheel"/><circle cx="160" cy="108" r="13" fill="#0B0D10" stroke="#F2F3F5" stroke-width="3" class="wheel"/></svg>
+      <em>Погрузчик · склад Казань</em>
+    </div>
+    <div class="road" aria-hidden="true"><i></i></div>
+  </div>
+</section>
+
+<!-- FLEET TABS -->
+<section class="section" id="fleet">
+  <div class="wrap fleet-grid">
+    <div>
+      <div class="sec-head">
+        <h2>140 машин в собственности. Не перекупаем.</h2>
+        <p>Нажмите на вкладку — покажем реальную технику, груз и цену.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Автопарк">
+        <button class="tab active" data-tab="fura" role="tab" aria-selected="true">Фуры 20–25 т</button>
+        <button class="tab" data-tab="ref" role="tab" aria-selected="false">Рефрижераторы</button>
+        <button class="tab" data-tab="tral" role="tab" aria-selected="false">Тралы</button>
+        <button class="tab" data-tab="fork" role="tab" aria-selected="false">Погрузчики</button>
+      </div>
+      <div class="fleet-panels">
+        <div class="panel active" id="p-fura" role="tabpanel">
+          <h3>Volvo FH / Scania R · тент 120 м³</h3>
+          <ul><li>До 25 т, 33 паллеты</li><li>Пневмоподвеска, обрешетка, ремни</li><li>Два водителя на плечах от 2 000 км</li></ul>
+          <p class="fleet-price">от 78 ₽/км</p>
         </div>
-    </footer>
+        <div class="panel" id="p-ref" role="tabpanel" hidden>
+          <h3>Рефрижераторы Thermo King</h3>
+          <ul><li>−20…+20°C, логгер температуры</li><li>Мясо, молочка, фарма, цветы</li><li>Мойка и санобработка перед рейсом</li></ul>
+          <p class="fleet-price">от 92 ₽/км</p>
+        </div>
+        <div class="panel" id="p-tral" role="tabpanel" hidden>
+          <h3>Низкорамные тралы 30–60 т</h3>
+          <ul><li>Длина до 16 м, уширители</li><li>Разрешения и прикрытие включены</li><li>Экскаваторы, станки, бытовки</li></ul>
+          <p class="fleet-price">от 140 ₽/км</p>
+        </div>
+        <div class="panel" id="p-fork" role="tabpanel" hidden>
+          <h3>Toyota 8FD / Linde H30</h3>
+          <ul><li>1,5–10 т, мачта до 6 м</li><li>Водитель с допуском, страховка</li><li>Смена 8 часов, работа ночью</li></ul>
+          <p class="fleet-price">от 1 900 ₽/час</p>
+        </div>
+      </div>
+    </div>
+    <div class="fleet-stage" aria-hidden="true">
+      <div class="fleet-card">
+        <svg id="fleetSvg" viewBox="0 0 480 220"><rect x="30" y="60" width="250" height="80" rx="10" fill="#171A20" stroke="#3A3F4B" stroke-width="2"/><rect x="290" y="74" width="130" height="66" rx="10" fill="#FF5C00"/><circle cx="110" cy="152" r="22" fill="#0B0D10" stroke="#FF5C00" stroke-width="4" class="wheel"/><circle cx="170" cy="152" r="22" fill="#0B0D10" stroke="#3A3F4B" stroke-width="4" class="wheel"/><circle cx="340" cy="152" r="22" fill="#0B0D10" stroke="#3A3F4B" stroke-width="4" class="wheel"/><circle cx="390" cy="152" r="22" fill="#0B0D10" stroke="#FF5C00" stroke-width="4" class="wheel"/><line x1="0" y1="176" x2="480" y2="176" stroke="#2A2E36" stroke-width="3"/></svg>
+        <div class="fleet-note"><b id="fleetCount">64</b><span id="fleetNote">фуры сегодня на линии</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- CALC -->
+<section class="section calc-sec" id="calc">
+  <div class="wrap calc-box">
+    <div>
+      <h2>Сколько стоит ваш рейс?</h2>
+      <p>Посчитайте сами — честно, без «позвоните для уточнения». Точность 95%, финальную цену фиксируем в договоре.</p>
+      <form class="calc-form" id="calcForm">
+        <label>Откуда<input id="cFrom" value="Москва" required></label>
+        <label>Куда<input id="cTo" value="Казань" required></label>
+        <label>Вес, тонн<input id="cWeight" type="number" min="0.1" max="60" step="0.1" value="5" required></label>
+        <label>Что везём<select id="cType"><option value="1">Тент / коробка</option><option value="1.18">Рефрижератор</option><option value="1.8">Негабарит / трал</option><option value="0.4">Погрузчик (почасовая)</option></select></label>
+        <button class="btn-primary" type="submit">Посчитать</button>
+      </form>
+    </div>
+    <div class="calc-out">
+      <span>Ваш ориентир</span>
+      <strong id="calcPrice">64 800 ₽</strong>
+      <em id="calcMeta">Москва → Казань · 820 км · 2 дня</em>
+      <a href="#contacts" class="btn-ghost">Зафиксировать цену</a>
+      <small>Включены: топливо, платные дороги, страховка 1 млн ₽, ЭДО.</small>
+    </div>
+  </div>
+</section>
+
+<!-- GEO -->
+<section class="section" id="geo">
+  <div class="wrap geo-grid">
+    <div>
+      <div class="sec-head">
+        <h2>Ездим туда, куда другие не берут</h2>
+        <p>89 регионов. Север — зимниками, Дальний Восток — сцепками с двумя водителями. Сроки называем сразу и держим.</p>
+      </div>
+      <ol class="routes">
+        <li><b>Москва → Казань</b><span>820 км · 2 дня · от 64 800 ₽</span></li>
+        <li><b>Москва → Екатеринбург</b><span>1 790 км · 3 дня · от 139 000 ₽</span></li>
+        <li><b>Новосибирск → Владивосток</b><span>5 600 км · 7 дней · от 436 000 ₽</span></li>
+        <li><b>СПб → Краснодар</b><span>2 300 км · 3 дня · от 179 000 ₽</span></li>
+      </ol>
+    </div>
+    <div class="map-card reveal" aria-label="Карта маршрутов">
+      <svg viewBox="0 0 520 280" class="map">
+        <path d="M30 170 L90 140 L160 150 L230 120 L300 130 L370 100 L440 115 L490 85 L490 190 L440 205 L370 190 L300 210 L230 195 L160 215 L90 200 L30 220 Z" fill="#14171D" stroke="#2A2E36" stroke-width="2"/>
+        <path class="route-draw" d="M90 165 Q 160 130 230 145 T 370 125 T 470 100" fill="none" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 8"/>
+        <g class="dots"><circle cx="90" cy="165" r="6" fill="#FF5C00"/><circle cx="230" cy="145" r="6" fill="#F2F3F5"/><circle cx="370" cy="125" r="6" fill="#F2F3F5"/><circle cx="470" cy="100" r="6" fill="#FF5C00"/></g>
+      </svg>
+      <div class="map-tags"><span>Москва</span><span>Екатеринбург</span><span>Красноярск</span><span>Владивосток</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section steps-sec">
+  <div class="wrap">
+    <div class="sec-head"><h2>От заявки до выгрузки — четыре шага</h2></div>
+    <ol class="steps">
+      <li class="reveal"><b>Заявка за 5 минут</b><p>Звонок или форма. Менеджер считает маршрут, фиксирует цену и подаёт машину.</p><span>15 минут на расчёт</span></li>
+      <li class="reveal"><b>Погрузка под контролем</b><p>Водитель с доверенностью, фото кузова, пломба. Погрузчики — наши, ждать никого не надо.</p><span>Фотоотчёт в мессенджер</span></li>
+      <li class="reveal"><b>Дорога в прямом эфире</b><p>GPS каждые 30 секунд, температура для рефа, звонок за 3 часа до прибытия.</p><span>Личный кабинет</span></li>
+      <li class="reveal"><b>Выгрузка и документы</b><p>Принимаете груз, подписываете ЭДО за 2 минуты. Оплата после, без предоплаты для постоянных.</p><span>Оплата по факту</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="tariffs">
+  <div class="wrap">
+    <div class="sec-head"><h2>Тарифы без мелкого шрифта</h2><p>Цена за километр с топливом и платными дорогами. Не меняется после подписания.</p></div>
+    <div class="tariffs">
+      <article class="t-card reveal"><h3>Город</h3><strong>от 1 800 ₽/час</strong><p>Газели и одиночки для переездов и поставок по городу.</p><ul><li>Подача за 2 часа</li><li>2 грузчика в помощь</li><li>Оплата по факту</li></ul><a href="#contacts">Выбрать</a></article>
+      <article class="t-card hot reveal"><em>Выбирают чаще</em><h3>Межгород</h3><strong>от 78 ₽/км</strong><p>Фуры и рефы между городами. Страховка и ЭДО включены.</p><ul><li>Срок в договоре</li><li>GPS и фотоотчёты</li><li>Штраф за опоздание — наш</li></ul><a href="#calc">Посчитать рейс</a></article>
+      <article class="t-card reveal"><h3>Бизнес</h3><strong>индивидуально</strong><p>Регулярные поставки, склады, выделенные машины и менеджер.</p><ul><li>Скидка до 14%</li><li>Отсрочка 30 дней</li><li>Аналитика затрат</li></ul><a href="#contacts">Обсудить</a></article>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><h2>Что говорят те, кто уже возит с нами</h2></div>
+    <div class="wall">
+      <blockquote class="reveal">«Везли линию для цеха — 4 трала из Питера в Челны. Разрешения сделали за 3 дня, все пришли колонной.»<cite>Марат Галеев · ТехноЛайн, Казань</cite></blockquote>
+      <blockquote class="reveal">«Молочку возим рефами каждую неделю. Температурный лог прикладывают к каждой накладной — сети принимают без вопросов.»<cite>Ольга Санина · АгроВолга</cite></blockquote>
+      <blockquote class="reveal">«Дали погрузчики на склад в аренду на полгода. Один сломался — через 4 часа уже стоял подменный.»<cite>Дмитрий Ким · МебельГрад, Новосибирск</cite></blockquote>
+      <blockquote class="reveal">«Считали сначала, что дорого. Потом посчитали срывы у прошлого подрядчика — с Falcon вышло дешевле на 11%.»<cite>Игорь Савельев · СтройДом</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <div class="sec-head"><h2>Спрашивают часто</h2><p>Не нашли ответ — позвоните, подскажем без скриптов: 8 800 555-35-35.</p></div>
+    <div>
+      <details open><summary>Сколько ждать машину?</summary><p>По городу — 2 часа. Межгород — подаём в день заявки или к нужной дате. На длинные плечи держим подменный фонд.</p></details>
+      <details><summary>Что если груз опоздает?</summary><p>В договоре фиксируем срок и штраф в вашу пользу — 0,5% за сутки. В прошлом году опоздали 1,3% рейсов, все штрафы выплатили за 5 дней.</p></details>
+      <details><summary>Страхуете ли груз?</summary><p>Да. Базово — до 1 млн ₽ включено. Дорогой груз застрахуем до 15 млн ₽, полис пришлём до погрузки.</p></details>
+      <details><summary>Работаете с НДС?</summary><p>Да, работаем с НДС и без, ЭДО (Диадок, СБИС), полный пакет закрывающих в день выгрузки.</p></details>
+      <details><summary>Можно без предоплаты?</summary><p>Первый рейс — по факту выгрузки. Постоянным — отсрочка 14–30 дней.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section contact-sec" id="contacts">
+  <div class="wrap contact-box">
+    <div>
+      <h2>Оставьте заявку — перезвоним за 15 минут</h2>
+      <p>Работаем круглосуточно. Ночью дежурит диспетчер, а не автоответчик.</p>
+      <ul class="contact-list">
+        <li><a href="tel:+78005553535">8 800 555-35-35 — бесплатно по России</a></li>
+        <li><a href="mailto:zakaz@falcontrans.ru">zakaz@falcontrans.ru</a></li>
+        <li>Москва, ул. Логистическая, 1 · склады в 6 городах</li>
+      </ul>
+    </div>
+    <form id="leadForm" novalidate>
+      <label>Ваше имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться" required><small class="err" hidden>Подскажите имя</small></label>
+      <label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 ___ ___-__-__" required><small class="err" hidden>Проверьте номер — нужно 11 цифр</small></label>
+      <label>Что и куда везём<input name="cargo" placeholder="Например: 8 т стройматериалов, Москва — Тверь"></label>
+      <button class="btn-primary" type="submit">Жду звонка</button>
+      <p class="form-ok" id="formOk" hidden>Приняли. Менеджер уже считает маршрут и перезвонит.</p>
+      <small class="form-note">Нажимая кнопку, соглашаетесь с политикой обработки данных.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div><b>Falcon Trans</b><p>Транспортная компания полного цикла. 12 лет везём грузы по России и СНГ.</p></div>
+    <nav aria-label="Карта сайта"><a href="#services">Услуги</a><a href="#fleet">Автопарк</a><a href="#calc">Расчёт</a><a href="#tariffs">Тарифы</a></nav>
+    <nav aria-label="Помощь"><a href="#faq">Вопросы</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a><a href="tel:+78005553535">8 800 555-35-35</a></nav>
+  </div>
+  <div class="wrap foot-bottom"><span>© 2026 Falcon Trans</span><span>Сделано в России · Политика конфиденциальности</span></div>
+  <div class="giant" aria-hidden="true">FALCON TRANS</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
